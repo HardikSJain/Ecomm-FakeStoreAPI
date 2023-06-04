@@ -12,10 +12,17 @@ This is a Flutter-based E-Commerce app that allows users to browse and purchase 
 
 ## Screenshots
 
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/c1820ac1-bc9e-4adf-9c19-451aae0cd336" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/af67e94c-d164-4c91-904e-d570b1251190" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/a30e53ee-0250-4d43-b30f-10fbd52326c9" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/5fa70e4f-afcd-49c0-94b9-95ff5927da0f" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/1ee40a62-686d-4125-b142-253e53a79c59" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/edc0dcc6-684c-423c-a049-62018b9641cf" width="200">
+<img src="https://github.com/HardikSJain/Ecomm-FakeStoreAPI/assets/81674309/def63e3c-e4bf-40d4-9f79-99b181f31ec6" width="200">
+
 
 ## Getting Started
 
-These instructions will help you set up and run the project on your local machine.
 
 ### Prerequisites
 
@@ -53,7 +60,7 @@ API Endpoints:
 
 ## Dependencies
 
-- http: ^0.13.3
+- http: ^0.13.6
 
 ## Built With
 
