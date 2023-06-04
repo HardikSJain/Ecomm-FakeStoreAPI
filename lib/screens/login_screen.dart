@@ -30,6 +30,17 @@ class LoginScreen extends StatelessWidget {
               size: 100,
             ),
             SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Ecomm",
+              style: TextStyle(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
               height: 30,
             ),
             TextField(
