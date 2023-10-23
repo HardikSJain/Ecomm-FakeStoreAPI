@@ -1,30 +1,61 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:ecomm/services/apiService.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:ecomm/main.dart';
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('ApiService Tests', () {
+    late ApiService apiService;
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    setUp(() {
+      apiService = ApiService();
+    });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    test('Get All Posts Test', () async {
+      var posts = await apiService.getAllPosts();
+      expect(posts, isNotNull);
+      expect(posts.length, greaterThan(0));
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    test('Get Single Product Test', () async {
+      var productId = 1; // Provide a valid product ID
+      var product = await apiService.getSingleProduct(productId);
+      expect(product, isNotNull);
+      expect(product['id'], productId);
+    });
+
+    test('Get All Categories Test', () async {
+      var categories = await apiService.getAllCategory();
+      expect(categories, isNotNull);
+      expect(categories.length, greaterThan(0));
+    });
+
+    test('Get Products By Category Test', () async {
+      var categoryName = 'electronics'; // Provide a valid category name
+      var products = await apiService.getProductByCategory(categoryName);
+      expect(products, isNotNull);
+      expect(products.length, greaterThan(0));
+    });
+
+    test('User Login Test', () async {
+      var username = 'testuser'; // Provide a valid username
+      var password = 'password123'; // Provide a valid password
+      var response = await apiService.userLogin(username, password);
+      expect(response, isNotNull);
+      expect(response.containsKey('token'), true);
+    });
+
+    test('Update Cart Test', () async {
+      var userId = 1; // Provide a valid user ID
+      var productId = 1; // Provide a valid product ID
+      var response = await apiService.updateCart(userId, productId);
+      expect(response, isNotNull);
+      expect(response.containsKey('message'), true);
+    });
+
+    test('Delete Cart Test', () async {
+      var userId = '1'; // Provide a valid user ID
+      await apiService.deleteCart(userId);
+      // If the delete request is successful, it won't return anything.
+      // So, if the function doesn't throw an error, it is considered successful.
+    });
   });
 }
